@@ -32,3 +32,10 @@ jobs:
           command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
           query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
           silent: False
+      - name: Retrieve the id the applications for functions in my compartment
+        uses: oracle-actions/run-oci-cli-command@v1.1.1
+        id: find-applications-id
+        with:
+          command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.output }}'
+          query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
+          silent: False 
