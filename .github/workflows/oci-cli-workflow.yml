@@ -36,6 +36,6 @@ jobs:
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-applications-id
         with:
-          command: 'fn function list --application-id ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaniupaauxysoxzmltd7r2vrrk5mlgxeldaiaexeinbyqg7tbrwwzq'
+          command: 'fn function list --application-id ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaaj4dgig5nut2su5tjvo3faum5npzr5yhoweid4q4p2r2esmzn222q'
           query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
           silent: False 
