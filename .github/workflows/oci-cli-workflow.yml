@@ -17,5 +17,6 @@ jobs:
         id: find-compartment-id
         with:
           command: 'iam compartment list --compartment-id-in-subtree=true'
-          query: "data[?name=='testing'].id"
+          query: "data[?name=='fernando.harris'].id"
+          silent: False
   
