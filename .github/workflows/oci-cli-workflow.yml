@@ -17,7 +17,7 @@ jobs:
         id: find-compartment-id
         with:
           command: 'iam compartment list --compartment-id-in-subtree=true'
-          query: "data[?name=='fernando.harris'].id"
+          query: "data[?name=='functions'].id"
           silent: False
       - name: Retrieve the display name and shape of the instances in my compartment
         uses: oracle-actions/run-oci-cli-command@v1.1.1
@@ -30,5 +30,5 @@ jobs:
         id: find-applications
         with:
           command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
-          #query: 'data[*].{name: \"display-name\"}'
+          query: 'data[*].{name: \"display-name\"}'
           silent: False
