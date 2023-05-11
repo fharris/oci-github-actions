@@ -2,32 +2,10 @@ name: GitHub Actions OCI Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions with OCI🚀
 on: [workflow_dispatch]
 jobs:
-  get-ocir-repository-test:
-    runs-on: ubuntu-22.04
-    name: Get OCIR Repository Test
-    env:
-      OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
-      OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
-      OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
-      OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
-      OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
-    steps:
-      - name: Get or create an OCIR Repository
-        uses: oracle-actions/get-ocir-repository@v1.2.1
-        id: get-ocir-repository
+  - name: Retrieve the OCID of a named compartment in tenancy
+        uses: oracle-actions/run-oci-cli-command@v1.1.1
+        id: find-compartment-id
         with:
-          name: oraclelinux
-          compartment: ${{ secrets.OCI_COMPARTMENT_OCID }}
-
-      - name: Log into OCIR
-        uses: oracle-actions/login-ocir@v1.2.1
-        id: login-ocir
-        with:
-          auth_token: ${{ secrets.OCI_AUTH_TOKEN }}
-
-      - name: Tag and push a container image
-        id: tag-and-push-image
-        run: |
-          docker pull oraclelinux:8-slim
-          docker tag "oraclelinux:8-slim" "${{ steps.get-ocir-repository.outputs.repo_path }}:8-slim"
-          docker push "${{ steps.get-ocir-repository.outputs.repo_path }}:8-slim"
+          command: 'iam compartment list --compartment-id-in-subtree=true'
+          query: "data[?name=='testing'].id"
+  
