@@ -45,4 +45,5 @@ jobs:
         with:
           command: 'fn function invoke --function-id "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaniupaauxysoxzmltd7r2vrrk5mlgxeldaiaexeinbyqg7tbrwwzq" --file "-" --body "john"'
           #query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
+          #fernandoharris: Change returning type of my hello world to JSON should solve the issue!
           silent: False     
