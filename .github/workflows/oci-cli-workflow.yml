@@ -25,10 +25,10 @@ jobs:
         with:
           command: 'compute instance list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
           query: 'data[*].{name: \"display-name\", shape: shape}'
-          silent: False
       - name: Retrieve the display name of the applications for functions in my compartment
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-applications
         with:
           command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
-          #query: 'data[*].{name: \"display-name\", shape: shape}'
+          query: 'data[*].{name: \"display-name\"}'
+          silent: False
