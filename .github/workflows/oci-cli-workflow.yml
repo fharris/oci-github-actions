@@ -32,10 +32,10 @@ jobs:
           command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
           query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
           silent: False
-      - name: Retrieve the id the applications for functions in my compartment
+      - name: Retrieve the id for functions in my application
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-applications-id
         with:
-          command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
-          query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
+          command: 'fn function list --application-id ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaniupaauxysoxzmltd7r2vrrk5mlgxeldaiaexeinbyqg7tbrwwzq'
+          query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
           silent: False 
