@@ -41,7 +41,7 @@ jobs:
           silent: False
       - name: Invoke function in my application
         uses: oracle-actions/run-oci-cli-command@v1.1.1
-        id: functions-response
+        #id: functions-response
         with:
           command: 'fn function invoke --function-id "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaniupaauxysoxzmltd7r2vrrk5mlgxeldaiaexeinbyqg7tbrwwzq" --file "-" --body "john"'
           #query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
