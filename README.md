@@ -1,3 +1,3 @@
-# javarestclient
+# Examples with OCI CLI and Git Hub Actions
 
-##triggering
+## 1 - Invoking Functions
