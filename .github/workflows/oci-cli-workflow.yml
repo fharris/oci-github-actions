@@ -19,6 +19,9 @@ jobs:
       OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
       REGISTRY: fra.ocir.io
       IMAGE_NAME: ${{ github.repository }}
+      OCI_COMPARTMENT_ID: ${{ secrets.OCI_COMPARTMENT_ID }}
+
+      
     steps:
       - name: "Install Fn"
         run: curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
@@ -32,17 +35,25 @@ jobs:
       - name: "Create context"
         run: fn create context functions --provider oracle
         shell: bash
-        
-        
-        
+      - name: "Use context"
+        run: fn use context functions
+        shell: bash
+      - name: "Update context compartment"
+        run: fn update context oracle.compartment-id ocid1.compartment.oc1..aaaaaaaajc733zsnctrcbo6w5ryfdtbifa44nrzaqlpatjptu4qlgr5dccpq
+        shell: bash
+      - name: "Update context api url"
+        run: fn update context api-url https://functions.eu-frankfurt-1.oraclecloud.com
+        shell: bash
+      - name: "Update context registry"
+        run: fn update context registry fra.ocir.io/frsxwtjslf35/${{ github.actor }}
+        shell: bash        
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
-      
-        
+            
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
