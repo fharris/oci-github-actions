@@ -15,6 +15,9 @@ jobs:
       - name: Install Fn
         run: curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
         shell: bash
+      - name: Check Fn
+        run: fn version
+        shell: bash
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
