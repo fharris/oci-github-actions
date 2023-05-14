@@ -18,9 +18,9 @@ jobs:
       - name: Check Fn
         run: fn version
         shell: bash
-      - name: Initialize  function
-        run: fn init --runtime $FUNCTION_RUNTIME $FUNCTION_NAME
-        shell: bash
+      - name: "Say Hello Mona it's Monday"
+        if: ${{ env.FUNCTION_RUNTIME == 'Phython' }}
+        run: echo "Hello $FUNCTION_RUNTIME"
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
