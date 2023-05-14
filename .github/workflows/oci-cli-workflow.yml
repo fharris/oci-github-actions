@@ -15,6 +15,9 @@ jobs:
       OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
       OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
       OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
+      OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
+      REGISTRY: fra.ocir.io
+      IMAGE_NAME: ${{ github.repository }}
     steps:
       - name: "Install Fn"
         run: curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
@@ -28,6 +31,13 @@ jobs:
       - name: "Create function"
         run: fn init --runtime $function_runtime $function_name
         shell: bash
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: "frsxwtjslf35/oracleidentitycloudservice/fernando.harris@oracle.com"
+          password: ${{ secrets.OCIR_TOKEN }}  
+        
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
