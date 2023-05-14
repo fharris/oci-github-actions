@@ -16,6 +16,7 @@ jobs:
       OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
       OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
       OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
+      OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
       REGISTRY: fra.ocir.io
       IMAGE_NAME: ${{ github.repository }}
     steps:
