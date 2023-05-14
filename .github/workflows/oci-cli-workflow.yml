@@ -23,21 +23,25 @@ jobs:
       - name: "Install Fn"
         run: curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
         shell: bash
-      - name: "Check Fn"
-        run: fn version
-        shell: bash
       - name: "Check runtime language"
         run: echo "Hello $runtime"
         shell: bash
       - name: "Create function"
-        run: fn init --runtime $function_runtime $function_name
+        run: fn init --runtime $function_runtime $function_name ; cd $function_name
         shell: bash
+      - name: "Create context"
+        run: fn create context functions --provider oracle
+        shell: bash
+        
+        
+        
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
-          password: ${{ secrets.OCIR_TOKEN }}  
+          password: ${{ secrets.OCIR_TOKEN }} 
+      
         
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
