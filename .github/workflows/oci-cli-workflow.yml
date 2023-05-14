@@ -54,10 +54,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
-      - name: "Deploy your function"
-        run: fn deploy --app ${{ vars.APP_NAME }}
-        shell: bash  
-            
+          
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
@@ -65,12 +62,7 @@ jobs:
           command: 'iam compartment list --compartment-id-in-subtree=true'
           query: "data[?name=='functions'].id"
           silent: False
-      - name: Retrieve the display name and shape of the instances in my compartment
-        uses: oracle-actions/run-oci-cli-command@v1.1.1
-        id: find-instances
-        with:
-          command: 'compute instance list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
-          query: 'data[*].{name: \"display-name\", shape: shape}'
+          
       - name: Retrieve the display name of the applications for functions in my compartment
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-applications
@@ -78,6 +70,16 @@ jobs:
           command: 'fn application list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
           query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
           silent: False
+    
+            
+      
+      - name: Retrieve the display name and shape of the instances in my compartment
+        uses: oracle-actions/run-oci-cli-command@v1.1.1
+        id: find-instances
+        with:
+          command: 'compute instance list --compartment-id ${{ steps.find-compartment-id.outputs.raw_output }}'
+          query: 'data[*].{name: \"display-name\", shape: shape}'
+      
       - name: Retrieve the id for functions in my application
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-applications-id
