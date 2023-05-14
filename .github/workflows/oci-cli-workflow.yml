@@ -19,7 +19,7 @@ jobs:
         run: fn version
         shell: bash
       - name: Initialize  function
-        run: fn init --runtime python my-func
+        run: fn init --runtime ${{ variables.FUNCTION_RUNTIME }} ${{ variables.FUNCTION_NAME }}
         shell: bash
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
