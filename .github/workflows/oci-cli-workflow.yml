@@ -71,7 +71,9 @@ jobs:
           query: 'data[*].{name: \"display-name\", applicationId: \"id\" }'
           silent: False
     
-            
+      - name: "Deploy your function"
+        run: fn deploy --app helloworld-app
+        shell: bash       
       
       - name: Retrieve the display name and shape of the instances in my compartment
         uses: oracle-actions/run-oci-cli-command@v1.1.1
