@@ -5,6 +5,7 @@ env:
   # Setting an environment variable with the value of a configuration variable
   function_runtime: ${{ vars.FUNCTION_RUNTIME }}
   function_name: ${{ vars.FUNCTION_NAME }}
+  app_name: ${{ vars.APP_NAME }}
 jobs:
   my-instances:
     runs-on: ubuntu-latest
@@ -53,6 +54,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
+      - name: "Deploy your function"
+        run: fn deploy --app ${{ vars.APP_NAME }}
+        shell: bash  
             
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
