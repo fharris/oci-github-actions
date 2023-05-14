@@ -12,17 +12,9 @@ jobs:
       OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
       OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
     steps:
-      - name: Display the path
-        run: echo $PATH
+      - name: Install Fn
+        run: curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
         shell: bash
-      - name: Install Function client
-        uses: oracle-actions/run-oci-cli-command@v1.1.1
-        #id: functions-response
-        with:
-          command: 'fn function invoke --function-id "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaniupaauxysoxzmltd7r2vrrk5mlgxeldaiaexeinbyqg7tbrwwzq" --file "-" --body "`${{ github.actor }}` "'
-          #query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
-          #fernandoharris: Change returning type of my hello world to JSON should solve the issue!
-          silent: False 
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         id: find-compartment-id
