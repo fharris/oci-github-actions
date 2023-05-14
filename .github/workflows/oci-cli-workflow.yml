@@ -19,7 +19,7 @@ jobs:
         run: fn version
         shell: bash
       - name: "Say Hello Mona it's Monday"
-        if: ${{ env.FUNCTION_RUNTIME == 'Phython' }}
+        if: ${{ env.FUNCTION_RUNTIME == 'python' }}
         run: echo "Hello $FUNCTION_RUNTIME"
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
