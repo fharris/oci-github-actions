@@ -31,15 +31,16 @@ jobs:
         run: echo "Hello $runtime"
         shell: bash
     
-      - name: "list context"
-        run: fn list context
+
+      - name: "Create context"
+        run: fn create context functions --provider oracle-cs
         shell: bash
-      ##- name: "Create context"
-      ##  run: fn create context functions --provider oracle
-      ##  shell: bash
-      ##- name: "Use context"
-      ##  run: fn use context functions
-      ##  shell: bash
+      
+      - name: "Use context"
+        run: fn use context functions
+        shell: bash
+      
+
       - name: "Update context compartment"
         run: fn update context oracle.compartment-id ocid1.compartment.oc1..aaaaaaaajc733zsnctrcbo6w5ryfdtbifa44nrzaqlpatjptu4qlgr5dccpq
         shell: bash
@@ -48,7 +49,13 @@ jobs:
         shell: bash
       - name: "Update context registry"
         run: fn update context registry fra.ocir.io/frsxwtjslf35/${{ github.actor }}
-        shell: bash        
+        shell: bash 
+      
+      - name: "list context"
+        run: fn list context
+        shell: bash
+        
+        
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
