@@ -30,9 +30,7 @@ jobs:
       - name: "Check runtime language"
         run: echo "Hello $runtime"
         shell: bash
-      - name: "Create function"
-        run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr; pwd
-        shell: bash
+   
       - name: "Create context"
         run: fn create context functions --provider oracle
         shell: bash
@@ -58,6 +56,10 @@ jobs:
       - name: "List Apps"
         run: fn list apps
         shell: bash   
+      
+      - name: "Create function"
+        run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr; pwd
+        shell: bash
           
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
