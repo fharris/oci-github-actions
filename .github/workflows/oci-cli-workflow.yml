@@ -31,7 +31,7 @@ jobs:
         run: echo "Hello $runtime"
         shell: bash
     
-      - name: "Use context"
+      - name: "list context"
         run: fn list context
         shell: bash
       ##- name: "Create context"
