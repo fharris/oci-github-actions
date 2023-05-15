@@ -107,9 +107,9 @@ jobs:
           #fernandoharris: Change returning type of my hello world to JSON should solve the issue!
           silent: False
           
-      - name: "List Apps"
-        run: fn list apps
-        shell: bash   
+      #- name: "List Apps"
+      #  run: fn list apps
+      #  shell: bash   
       
       - name: "Create function"
         run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr; pwd
