@@ -30,13 +30,16 @@ jobs:
       - name: "Check runtime language"
         run: echo "Hello $runtime"
         shell: bash
-   
-      - name: "Create context"
-        run: fn create context functions --provider oracle
-        shell: bash
+    
       - name: "Use context"
-        run: fn use context functions
+        run: fn list context
         shell: bash
+      ##- name: "Create context"
+      ##  run: fn create context functions --provider oracle
+      ##  shell: bash
+      ##- name: "Use context"
+      ##  run: fn use context functions
+      ##  shell: bash
       - name: "Update context compartment"
         run: fn update context oracle.compartment-id ocid1.compartment.oc1..aaaaaaaajc733zsnctrcbo6w5ryfdtbifa44nrzaqlpatjptu4qlgr5dccpq
         shell: bash
