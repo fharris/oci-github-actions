@@ -54,14 +54,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: "list files"
-        run:  ls -ltr
-        shell: bash
-      - name: "Run Docker build"
-        run: docker build -t fharris/test:latest .
-        shell: bash 
+
           
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
@@ -97,6 +90,7 @@ jobs:
           command: 'fn function list --application-id ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaaj4dgig5nut2su5tjvo3faum5npzr5yhoweid4q4p2r2esmzn222q'
           query: 'data[*].{name: \"display-name\", functionId: \"id\" }'
           silent: False
+          
       - name: Invoke function in my application
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         #id: functions-response
