@@ -31,7 +31,7 @@ jobs:
         run: echo "Hello $runtime"
         shell: bash
       - name: "Create function"
-        run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr
+        run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr; pwd
         shell: bash
       - name: "Create context"
         run: fn create context functions --provider oracle
