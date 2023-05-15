@@ -45,7 +45,7 @@ jobs:
         run: fn update context oracle.compartment-id ocid1.compartment.oc1..aaaaaaaajc733zsnctrcbo6w5ryfdtbifa44nrzaqlpatjptu4qlgr5dccpq
         shell: bash
       - name: "Update context api url"
-        run: fn update context api-url https://functions.eu-frankfurt-1.oraclecloud.com
+        run: fn update context api-url https://functions.eu-frankfurt-1.oci.oraclecloud.com 
         shell: bash
       - name: "Update context registry"
         run: fn update context registry fra.ocir.io/frsxwtjslf35/${{ github.actor }}
