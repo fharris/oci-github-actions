@@ -54,6 +54,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
+      - name: "Run Docker build"
+        run: docker build -t fharris/test:latest .
+        shell: bash 
           
       - name: Retrieve the OCID of a named compartment in tenancy
         uses: oracle-actions/run-oci-cli-command@v1.1.1
