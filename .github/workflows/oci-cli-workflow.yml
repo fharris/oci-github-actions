@@ -53,9 +53,9 @@ jobs:
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
       
-      #- name: "List Apps"
-      #  run: fn list apps
-      #  shell: bash   
+      - name: "List Apps"
+        run: fn list apps
+        shell: bash   
       
       - name: "Create function"
         run: fn init --runtime $function_runtime $function_name ; cd $function_name ; ls -ltr; pwd
