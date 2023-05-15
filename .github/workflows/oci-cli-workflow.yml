@@ -55,8 +55,8 @@ jobs:
           username: ${{ secrets.OCIR_USERNAME }}
           password: ${{ secrets.OCIR_TOKEN }} 
       
-      - name: "Deploy your function"
-        run: fn deploy --create-app helloworld-app
+      - name: "List Apps"
+        run: fn list apps
         shell: bash   
           
       - name: Retrieve the OCID of a named compartment in tenancy
