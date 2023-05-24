@@ -24,6 +24,10 @@ jobs:
 
       
     steps:
+    
+      - name: "list workspace"
+        run: ls -ltra
+        shell: bash
       
       
       - name: "Create container Instances"
