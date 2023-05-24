@@ -24,18 +24,11 @@ jobs:
 
       
     steps:
-      - name: "Checkout Rep"   
-        uses: actions/checkout@v3
-    
-      - name: "list workspace"
-        run: ls -ltra
-        shell: bash
       
-      
-      - name: "Create container Instances"
+      - name: "Get Cluster details"
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: 'container-instances container-instance create --availability-domain Vihs:EU-FRANKFURT-1-AD-1  --compartment-id ocid1.compartment.oc1..aaaaaaaak3cg7aoegjmd7pcpv6j6uhcmssa3ghygxjamzbtas7fx7qauahga --containers file://wordpressmysql-containers.json   --shape CI.Standard.E4.Flex --shape-config file://wordpress-shape-config.json --vnics file://wordpress-vnic.json --display-name wordpressmysql-github'
+          command: 'ce cluster get --cluster-id $cluster_id'
           silent: False
         
         
