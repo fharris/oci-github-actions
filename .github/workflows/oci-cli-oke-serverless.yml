@@ -28,7 +28,7 @@ jobs:
       - name: "Get Cluster details"
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: 'ce cluster get --cluster-id $cluster_id'
+          command: 'ce cluster get --cluster-id ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaa44gt6mis3ijcwxe4z5z7n6ug5kyjmugiwbwfaixdncx6e7wmwodq'
           silent: False
         
         
