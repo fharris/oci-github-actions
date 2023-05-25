@@ -18,6 +18,7 @@ jobs:
       OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION }}
       OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
       OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
+      OKE_CLUSTER_OCID: ${{ secrets.OKE_CLUSTER_OCID }}
       REGISTRY: fra.ocir.io
       IMAGE_NAME: ${{ github.repository }}
       OCI_COMPARTMENT_ID: ocid1.compartment.oc1..aaaaaaaak3cg7aoegjmd7pcpv6j6uhcmssa3ghygxjamzbtas7fx7qauahga
@@ -28,7 +29,7 @@ jobs:
       - name: "Get Cluster details"
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: 'ce cluster get --cluster-id ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaa44gt6mis3ijcwxe4z5z7n6ug5kyjmugiwbwfaixdncx6e7wmwodq'
+          command: 'ce cluster get --cluster-id ${{ secrets.OKE_CLUSTER_OCID }}'
           silent: False
      
       - name: Configure Kubectl
