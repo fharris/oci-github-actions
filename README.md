@@ -1,4 +1,4 @@
-# Examples with OCI CLI and Git Hub Actions - Capex Free Exercises
+# OCI CLI and Git Hub Actions - Capex Free Exercises
 
 Let's play and learn:
 
