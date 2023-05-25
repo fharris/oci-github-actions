@@ -37,10 +37,12 @@ jobs:
         id: test-configure-kubectl-oke-action
         with:
           cluster: ${{ secrets.OKE_CLUSTER_OCID }}
-          silent: False
       
-      - name: Run Kubectl
+      - name: Get Nodes
         run: kubectl get nodes -A
+        
+      - name: Deploy Dummy App
+        run: kubectl apply -f -f https://k8s.io/examples/application/deployment.yaml
         
         
 
