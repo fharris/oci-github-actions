@@ -30,6 +30,13 @@ jobs:
         with:
           command: 'ce cluster get --cluster-id ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaa44gt6mis3ijcwxe4z5z7n6ug5kyjmugiwbwfaixdncx6e7wmwodq'
           silent: False
+     
+      - name: deploy to cluster
+        uses: ghostzero/kubectl@v1
+        env:
+         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+         args: apply -f https://k8s.io/examples/application/deployment.yaml
         
         
       - name: "Install Fn"
