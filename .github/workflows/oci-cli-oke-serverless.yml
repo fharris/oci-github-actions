@@ -44,6 +44,9 @@ jobs:
       - name: Deploy Dummy App
         run: kubectl apply -f https://k8s.io/examples/application/deployment.yaml
         
+      - name: Check App
+        run: kubectl get -f https://k8s.io/examples/application/deployment.yaml -o wide
+        
         
 
       
