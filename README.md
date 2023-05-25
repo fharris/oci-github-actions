@@ -10,6 +10,11 @@ Let's play and learn:
 
 ## 2 - Creating Container Instances
 
+  - [oci-cli-function.yml](.github/workflows/oci-cli-container-instances.yml)
+
+
 ## 3 - Listing k8s Serverless and Deploying Apps
+
+
 
 
