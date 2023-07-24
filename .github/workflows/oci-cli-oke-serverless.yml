@@ -47,6 +47,9 @@ jobs:
       
       - name: Get Nodes
         run: kubectl get nodes -A
+        
+      - name: Deploy nginx
+        run: kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/oracle-devrel/oci-oke-virtual-nodes/main/nginx-svc/nginx.yaml
       
       - name: Create k8booster Namespace
         run: kubectl apply -f k8booster/manifestNamespace.json
