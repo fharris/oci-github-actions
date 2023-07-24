@@ -25,6 +25,13 @@ jobs:
 
       
     steps:
+    
+      - name: "Checkout Rep"   
+        uses: actions/checkout@v3
+    
+      - name: "list workspace"
+        run: ls -ltra
+        shell: bash
       
       - name: "Get Cluster details"
         uses: oracle-actions/run-oci-cli-command@v1.1.1
