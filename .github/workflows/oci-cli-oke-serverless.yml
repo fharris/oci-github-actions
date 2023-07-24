@@ -51,8 +51,8 @@ jobs:
       - name: Deploy Dummy App
         run: kubectl apply -f https://k8s.io/examples/application/deployment.yaml
       
-      - name: Deploy k8booster App
-        run: kubectl apply -f .github/workflows/k8booster/manifest-deploy.yaml
+      - name: Create k8booster Namespace
+        run: kubectl apply -f .github/workflows/k8booster/manifest-namespace.json
         
       - name: Check App
         run: kubectl get -f https://k8s.io/examples/application/deployment.yaml -o wide
