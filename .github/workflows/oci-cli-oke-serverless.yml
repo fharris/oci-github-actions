@@ -9,7 +9,7 @@ env:
 jobs:
   my-instances:
     runs-on: ubuntu-latest
-    name: Play with container Instances
+    name: Play with OKE Serverless
     env:
       OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
       OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
