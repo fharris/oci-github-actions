@@ -52,10 +52,10 @@ jobs:
         run: kubectl apply -f .github/workflows/k8booster/manifest-namespace.json
       
       - name: Deploy Dummy App
-        run: kubectl apply -f .github/workflows/k8booster/manifest-deploy.yml
+        run: kubectl apply -f k8booster/manifestDeploy.yaml
         
       - name: Check Dummy App
-        run: kubectl get -f .github/workflows/k8booster/manifest-deploy.yml -o wide
+        run: kubectl get -f k8booster/manifestDeploy.yaml -o wide
         
         
         
