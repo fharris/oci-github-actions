@@ -49,7 +49,7 @@ jobs:
         run: kubectl get nodes -A
       
       - name: Create k8booster Namespace
-        run: kubectl apply -f .github/workflows/k8booster/manifest-namespace.json
+        run: kubectl apply -f k8booster/manifestNamespace.json
       
       - name: Deploy Dummy App
         run: kubectl apply -f k8booster/manifestDeploy.yaml
