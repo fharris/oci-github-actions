@@ -15,7 +15,7 @@ jobs:
       OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
       OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
       OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
-      OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION_FUNCTIONS }}
+      OCI_CLI_REGION: ${{ secrets.OCI_CLI_REGION_CI }}
       OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
       OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
       REGISTRY: fra.ocir.io
