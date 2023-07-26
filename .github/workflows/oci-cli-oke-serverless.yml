@@ -3,26 +3,25 @@ run-name: ${{ github.actor }} is testing out GitHub Actions with OCI🚀 OKE Ser
 on: [workflow_dispatch]
 env:
   # Setting an environment variable with the value of a configuration variable
-  OCI_CLI_REGION:  ${{ vars.VAR_OCI_CLI_REGION }}
-  #OCI_COMPARTMENT_ID:  ${{ vars.VAR_OCI_COMPARTMENT_ID }}
-  REGISTRY: ${{ vars.VAR_REGISTRY }}
+  
+  #REGISTRY: ${{ vars.VAR_REGISTRY }}
+ 
 jobs:
   my-instances:
     runs-on: ubuntu-latest
     name: Play with OKE Serverless
     env:
+      OCI_CLI_REGION:  ${{ vars.VAR_OCI_CLI_REGION }}
       OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
       OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
       OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
       OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
-      
-      OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
-      OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
       OKE_CLUSTER_OCID: ${{ vars.VAR_OKE_CLUSTER_OCID }}
-      #IMAGE_NAME: ${{ github.repository }}
-
-
       
+      #OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
+      #OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
+      
+
     steps:
     
       - name: "Checkout Rep"   
