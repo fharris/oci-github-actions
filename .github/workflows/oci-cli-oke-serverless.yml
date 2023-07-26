@@ -18,7 +18,7 @@ jobs:
       
       OCIR_TOKEN: ${{ secrets.OCIR_TOKEN }}
       OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
-      OKE_CLUSTER_OCID:  ocid1.cluster.oc1.uk-london-1.aaaaaaaa65qarailzfbhckdzidfwfvjymdfgqkz6wlwwkbyx5cdvbu6je2wq
+      OKE_CLUSTER_OCID: ${{ vars.VAR_OKE_CLUSTER_OCID }}
       #IMAGE_NAME: ${{ github.repository }}
 
 
