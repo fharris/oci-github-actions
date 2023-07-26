@@ -5,7 +5,7 @@ env:
   # Setting an environment variable with the value of a configuration variable
   function_runtime: ${{ vars.FUNCTION_RUNTIME }}
   #function_name: ${{ vars.FUNCTION_NAME }}
-  #app_name: ${{ vars.APP_NAME }}
+  container_instance_name: ${{ vars.CONTAINER_INSTANCE_NAME }}
 jobs:
   my-instances:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       - name: "Create container Instances"
         uses: oracle-actions/run-oci-cli-command@v1.1.1
         with:
-          command: 'container-instances container-instance create --availability-domain Vihs:EU-FRANKFURT-1-AD-1  --compartment-id ${{ secrets.OCI_COMPARTMENT_ID }} --containers file://wordpressmysql-containers.json   --shape CI.Standard.E4.Flex --shape-config file://wordpress-shape-config.json --vnics file://wordpress-vnic.json --display-name wordpressmysql-github6'
+          command: 'container-instances container-instance create --availability-domain Vihs:EU-FRANKFURT-1-AD-1  --compartment-id ${{ secrets.OCI_COMPARTMENT_ID }} --containers file://wordpressmysql-containers.json   --shape CI.Standard.E4.Flex --shape-config file://wordpress-shape-config.json --vnics file://wordpress-vnic.json --display-name ${{ vars.CONTAINER_INSTANCE_NAME }}'
           silent: false
         
         
