@@ -30,6 +30,11 @@ jobs:
       - name: "list workspace"
         run: ls -ltra
         shell: bash
+        
+     
+      - name: "echo var"
+        run: echo $OCI_COMPARTMENT_ID
+        shell: bash
       
       
       - name: "Create container Instances"
