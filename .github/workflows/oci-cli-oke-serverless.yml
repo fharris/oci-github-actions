@@ -20,7 +20,6 @@ jobs:
       OCIR_USERNAME: ${{ secrets.OCIR_USERNAME }}
       OKE_CLUSTER_OCID: ${{ secrets.OKE_CLUSTER_OCID }}
       IMAGE_NAME: ${{ github.repository }}
-      #OCI_COMPARTMENT_ID: ocid1.compartment.oc1..aaaaaaaak3cg7aoegjmd7pcpv6j6uhcmssa3ghygxjamzbtas7fx7qauahga
 
 
       
