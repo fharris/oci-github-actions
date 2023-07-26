@@ -1,5 +1,5 @@
 name: GitHub Actions OCI Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions with OCI🚀
+run-name:  ${{ github.actor }} is testing out GitHub Actions with OCI🚀 Functions
 on: [workflow_dispatch]
 env:
   # Setting an environment variable with the value of a configuration variable
