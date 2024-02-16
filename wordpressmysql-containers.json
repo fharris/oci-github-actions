@@ -4,7 +4,7 @@
     "environmentVariables": {
       "WORDPRESS_DB_HOST": "127.0.0.1",
       "WORDPRESS_DB_USER": "wordpress",
-      "WORDPRESS_DB_PASSWORD": "wordpress",
+      "WORDPRESS_DB_PASSWORD": "YOUR_PASSWORD",
       "WORDPRESS_DB_NAME": "wordpress"
     },
 
@@ -18,10 +18,10 @@
   {  
     "displayName": "mysql",
     "environmentVariables": {
-      "MYSQL_ROOT_PASSWORD": "wordpressonmysql",
+      "MYSQL_ROOT_PASSWORD": "YOUR_PASSWORD",
       "MYSQL_DATABASE": "wordpress",
       "MYSQL_USER": "wordpress",
-      "MYSQL_PASSWORD": "wordpress"
+      "MYSQL_PASSWORD": "YOUR_PASSWORD"
     },
 
     "imageUrl": "docker.io/mysql:8.0.31",
