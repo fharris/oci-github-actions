@@ -40,7 +40,7 @@ jobs:
 
       - name: Configure Kubectl
         uses: oracle-actions/configure-kubectl-oke@v1.5.0
-        id: test-configure-kubectl-oke-action
+        id: test-configure-kubectl-oke-action-2
         with:
           cluster: ${{ secrets.OKE_CLUSTER_OCID }}
      
