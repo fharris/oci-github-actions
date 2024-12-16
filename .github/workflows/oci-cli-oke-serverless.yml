@@ -37,6 +37,12 @@ jobs:
         with:
           command: 'ce cluster get --cluster-id ${{ secrets.OKE_CLUSTER_OCID }}'
           silent: False
+
+      - name: Configure Kubectl
+        uses: oracle-actions/configure-kubectl-oke@v1.5.0
+        id: test-configure-kubectl-oke-action
+        with:
+          cluster: ${{ secrets.OKE_CLUSTER_OCID }}
      
       - name: Configure Kubectl
         uses: oracle-actions/configure-kubectl-oke@v1.3.2
