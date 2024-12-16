@@ -2,6 +2,7 @@ jobs:
   my-instances:
     runs-on: ubuntu-latest
     name: List the display name and shape of the instances in my compartment
+    on: [workflow_dispatch]
     env:
       OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
       OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
