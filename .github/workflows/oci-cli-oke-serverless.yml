@@ -9,8 +9,8 @@ env:
  
 jobs:
   my-instances:
-    runs-on: ubuntu-latest
-    #runs-on: self-hosted
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Play with OKE Serverless
     env:
       
