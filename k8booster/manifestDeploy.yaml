@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: cloudnativebasicspring
-  replicas: 4
+  replicas: 5
   template:
     metadata:
       labels:
