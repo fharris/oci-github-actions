@@ -56,7 +56,7 @@ jobs:
       - name: Deploy Dummy App
         run: kubectl apply -f k8booster/manifestDeploy.yaml
         
-      - name: Check Dummy App
+      - name: Check Dummy Deploy
         run: kubectl get -f k8booster/manifestDeploy.yaml -o wide
         
       - name: Create Load Balancer Service for Dummy App
@@ -64,6 +64,9 @@ jobs:
         
       - name: Check Service for Dummy App
         run: kubectl get -f k8booster/manifestService.yaml -o wide
+
+      - name: Check Dummy Pods
+        run: kubectl -n k8-booster get pods -o wide
         
         
         
