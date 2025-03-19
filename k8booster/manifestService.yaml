@@ -3,6 +3,10 @@ kind: Service
 metadata:
   name: cloudnativebasicspring-service
   namespace: k8-booster
+  labels:
+    app: cloudnativebasicspring
+  annotations:
+    oci.oraclecloud.com/load-balancer-type: "nlb"
 spec:
   ports:
   - port: 80
