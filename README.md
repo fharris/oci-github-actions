@@ -24,7 +24,7 @@ Let's play and learn:
 ## 4 - OKE OpenID Connect Authentication
 
 
-  - [oci-cli-oke-oidc.yml](.github/workflows/oci-cli-oke-oidc.yml)
+  - [oke-oidc.yml](.github/workflows/oke-oidc.yml)
 
 
 
