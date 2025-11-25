@@ -28,6 +28,31 @@ Let's play and learn:
 
 
 
+```
+{
+  "options": {
+    "openIdConnectTokenAuthenticationConfig": {
+      "isOpenIdConnectAuthEnabled": true,
+      "clientId": "oke-kubernetes-cluster",
+      "issuerUrl": "https://token.actions.githubusercontent.com",
+      "usernameClaim": "sub",
+      "usernamePrefix": "actions-oidc:",
+      "requiredClaim": [
+        "repository=myaccount/oke-oidc",
+        "workflow=oke-oidc",
+        "ref=refs/heads/main"
+      ],
+      "caCertificate": null,
+      "signingAlgorithms": [
+        "RS256"
+      ]
+    }
+  }
+}
+```
+
+
+
 
 
 
