@@ -38,7 +38,7 @@ Let's play and learn:
       "usernameClaim": "sub",
       "usernamePrefix": "actions-oidc:",
       "requiredClaim": [
-        "repository=myaccount/oke-oidc",
+        "repository=fharris/oci-github-actions",
         "workflow=oke-oidc",
         "ref=refs/heads/main"
       ],
