@@ -34,7 +34,7 @@ oci ce cluster update --cluster-id CLUSTER_OCID --from-json file://./update.json
 ```
 
 The content of the update.json file is below. 
-Replace fharris with your github account and oci-github-actions with your repo:
+Replace *fharris* with your github account and *oci-github-actions* with your repo:
 
 ```
 {
