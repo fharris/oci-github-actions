@@ -33,7 +33,9 @@ Update your cluster with the following command:
 oci ce cluster update --cluster-id CLUSTER_OCID --from-json file://./update.json
 ```
 
-The content of the update.json file is below:
+The content of the update.json file is below. 
+Replace fharris with your github account and oci-github-actions with your repo:
+
 ```
 {
   "options": {
@@ -57,7 +59,6 @@ The content of the update.json file is below:
 }
 ```
 
-Replace fharris with your github account and oci-github-actions with your repo.
 
 
 
