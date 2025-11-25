@@ -1,0 +1,39 @@
+name: OKE-OIDC
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  id-token: write # Required to receive OIDC tokens
+
+# This workflow generates a GitHub Actions OIDC token and runs kubectl command in an OKE cluster
+jobs:
+  oke-oidc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create OIDC Token
+        id: create-oidc-token
+        run: |
+          AUDIENCE="oke-kubernetes-cluster"
+          OIDC_URL_WITH_AUDIENCE="$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUDIENCE"
+          IDTOKEN=$(curl \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            -H "Accept: application/json; api-version=2.0" \
+            "$OIDC_URL_WITH_AUDIENCE" | jq -r .value)
+          echo "::add-mask::${IDTOKEN}"
+          echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
+
+      - name: Check Permissions in Kubernetes
+        run: |
+          kubectl \
+          --token=${{ steps.create-oidc-token.outputs.IDTOKEN }} \
+          --server="https://X.X.X.X:6443" \
+          --insecure-skip-tls-verify \
+          auth can-i --list
