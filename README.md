@@ -22,7 +22,7 @@ Let's play and learn:
   - [oci-cli-function.yml](.github/workflows/oci-cli-functions.yml)
 
 ## 4 - OKE OpenID Connect Authentication
-
+      [reference](https://docs.oracle.com/en/learn/gaw-oke-odic/index.html#introduction)
 
   - [oke-oidc.yml](.github/workflows/oke-oidc.yml)
 
