@@ -28,7 +28,12 @@ Let's play and learn:
   - [oke-oidc.yml](.github/workflows/oke-oidc.yml)
 
 
+Update your cluster with the following command:
+```
+oci ce cluster update --cluster-id CLUSTER_OCID --from-json file://./update.json
+```
 
+The content of the update.json file is below:
 ```
 {
   "options": {
