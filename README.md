@@ -22,7 +22,8 @@ Let's play and learn:
   - [oci-cli-function.yml](.github/workflows/oci-cli-functions.yml)
 
 ## 4 - OKE OpenID Connect Authentication
-  - [reference](https://docs.oracle.com/en/learn/gaw-oke-odic/index.html#introduction)
+  - [tutorial](https://docs.oracle.com/en/learn/gaw-oke-odic/index.html#introduction)
+  - [documentation](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengOpenIDConnect-Authentication.htm)
 
   - [oke-oidc.yml](.github/workflows/oke-oidc.yml)
 
@@ -51,6 +52,7 @@ Let's play and learn:
 }
 ```
 
+Replace fharris with your github account and oci-github-actions with your repo.
 
 
 
