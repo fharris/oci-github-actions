@@ -65,8 +65,9 @@ oci artifacts container image-signature sign-upload --compartment-id <compartmen
 
 
 ##signing
+```
 oci artifacts container image-signature sign-upload --compartment-id ocid1.compartment.oc1..(...)sa5hbzq --kms-key-id ocid1.key.oc1.eu-frankfurt-1.c(...)45oa --kms-key-version-id ocid1.keyversion.oc1.eu-frankfurt-1.c(...)ma --signing-algorithm SHA_224_RSA_PKCS_PSS --image-id ocid1.containerimage.oc1.eu-frankfurt-1.0.frsxwtjs(...)ksaq --description "Image for UAT testing" 
-
+```
 
 ##verifying
 oci artifacts container image-signature get-verify --compartment-id ocid1.compartment.oc1..aaaaaaaam(...)zq --repo-name wikipedia/demo/curiosityfrontendms --image-digest sha256:231def9(...)5 --trusted-keys ocid1.key.oc1.eu-frankfurt-1.cbrijocpaafl4.abthe(...)oa --compartment-id-in-subtree false
